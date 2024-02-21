@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM debian:12-slim
 
 RUN apt-get update && apt-get -y --no-install-recommends install \
         apt-transport-https \
@@ -14,9 +14,9 @@ RUN apt-get update && apt-get -y --no-install-recommends install \
     && apt-get install -y --no-install-recommends \
         docker-ce docker-ce-cli containerd.io \
         openssh-server \
-        python \
-        python-pip \
-        python-setuptools
+        python3 \
+        python3-pip \
+        python3-setuptools
 
 COPY ssh_config /etc/ssh/ssh_config
 COPY sshd_config /etc/ssh/sshd_config
